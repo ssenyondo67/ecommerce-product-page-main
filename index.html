@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> -->
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+    <header role="heading">
+      
+      <div class="container navbar flex__item"> 
+        
+          <div class="navbar--left flex__item">
+            <img src="./images/icon-menu.svg" alt="" class="menu icon nav_img__size" id="menu">
+           
+            <img src="./images/logo.svg" alt="logo" class="logo  ">
+           
+            <nav class="nav--menu nav__hide" id="navMenu">
+              <img src="./images/icon-close.svg" alt="" class="close icon nav_img__size" id="menuClose">
+              <ul class="navbar--nav ">
+                <li class="link--item">
+                  <a href="" class="nav--link text__small" id="collection" onclick="select(this.id)"> Collections</a>
+                </li>
+                <li class="link--item">
+                  <a href="" class="nav--link text__small" id="men" onclick="select(this.id)">Men</a>
+                </li>
+                <li class="link--item">
+                  <a href="" class="nav--link text__small selected" id="women" onclick="select(this.id)">Women</a>
+                </li>
+                <li class="link--item">
+                  <a href="" class="nav--link text__small"  id="about" onclick="select(this.id)"> About</a>
+                </li>
+                <li class="link--item">
+                  <a href="" class="nav--link text__small" id="contact" onclick="select(this.id)">  Contact</a>
+                </li>
+            </ul>
+          </nav>
+          </div>
+          <div class="navbar--right flex__item ">
+            <div class="" id="itemNumber"></div>
+            <img src="./images/icon-cart.svg" alt="cart" class="cartIcon icon nav_img__size" id="cartIcon">
+            
+            <img src="./images/image-avatar.png" alt="user" class="user icon nav_img__size">
+           
+            <div class="cart __hide" id="cart">
+              <div class="cart--title row ">
+                <h1 class=" text__large">card</h1>
+              </div>
+              <div class="item--holder d-flex flex-column align-items-center justify-content-center " >
+                <div class="cart-items flex__item " id="ItemHolder" >
+                                  
+                  
+                </div>
+                <div  class="btn checkout--button " id="checkout">
+                  Checkout
+                </div>
+              </div>
+            </div>          
+          </div>
+       
+      </div>
+    </header>
+
+
+    <!-- ---------------------------main--------------------- -->
+    <main role="main ">
+      <div class="container">
+        <div class="row ">
+          <div class=" image-box-outer col">
+                  <div class="image-box-inner1   image__show flex__item" id="imageDisplay1">
+                  <div class="display-box">
+                      <img src="./images/image-product-1.jpg" alt="" class="image--display image" id="imageShow1">
+                  </div>
+                  <div class=" thumbnail-boxs1 flex__item">
+                      <div class=" thumbnail-box ">
+                        <img src="./images/image-product-1-thumbnail.jpg" alt="" class="image--small image--small1  image image__gray" id="imageProduct1" onclick="showThis(this.id)">
+                      </div>
+                      <div class="thumbnail-box1 ">
+                        <img src="./images/image-product-2-thumbnail.jpg" alt="" class="image--small image--small1  image" id="imageProduct2" onclick="showThis(this.id)">
+                      </div>
+                      <div class="thumbnail-box1 ">
+                        <img src="./images/image-product-3-thumbnail.jpg" alt="" class="image--small image--small1 image" id="imageProduct3" onclick="showThis(this.id)">
+                      </div>
+                      <div class="thumbnail-box1 ">
+                        <img src="./images/image-product-4-thumbnail.jpg" alt="" class="image--small image--small1 image" id="imageProduct4" onclick="showThis(this.id)">
+                      </div>
+                  </div>
+                </div> 
+                
+                <div class="image-box-inner2  image--show " id="imageDisplay2">
+                    <img src="./images/icon-previous.svg" alt="" class="controls control--previous" id="previous" onclick="previous()">
+                    <img src="./images/icon-next.svg" alt="" class=" controls control--next" id="next" onclick="next()"> 
+                 
+                   <img src="./images/icon-close.svg" alt="" class="close" id="displayClose">
+                 
+                  <div class="display-box">
+                      <img src="./images/image-product-1.jpg" alt="" class="image--display image image--display2 " id="imageShow2">
+                  </div>
+                  <div class=" thumbnail-boxs2 flex__items">
+                      <div class=" thumbnail-box2 ">
+                        <img src="./images/image-product-1-thumbnail.jpg" alt="" class="image--small image--small2  image image__gray" id="imgProduct1" onclick="displayThis(this.id)">
+                      </div>
+                      <div class="thumbnail-box2 ">
+                        <img src="./images/image-product-2-thumbnail.jpg" alt="" class="image--small image--small2  image" id="imgProduct2" onclick="displayThis(this.id)">
+                      </div>
+                      <div class="thumbnail-box2 ">
+                        <img src="./images/image-product-3-thumbnail.jpg" alt="" class="image--small image--small2 image" id="imgProduct3" onclick="displayThis(this.id)">
+                      </div>
+                      <div class="thumbnail-box2 ">
+                        <img src="./images/image-product-4-thumbnail.jpg" alt="" class="image--small image--small2 image" id="imgProduct4" onclick="displayThis(this.id)">
+                      </div>
+                  </div>
+                </div> 
+          </div>
+          <div class="product-info col flex__item">
+              <h3 class="product--title">Sneaker Company</h3>
+              <h1 class="product--name text__large" id="productName">Fall Limited Edition Sneakers</h1>
+              <p class="product--description text__small">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+                durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+              <div class="product-price flex__item">
+                <p class="current--price text__large"><span id="newprice"> $125.00 </span><span id="price--cut">50%</span></p>
+                <p class="old--price text__small">$250.00</p>
+              </div>
+              <div class="buttonlike flex__item">
+                <div class="input-group">
+                  <img src="./images/icon-minus.svg" alt="" class="math-icon" id="minus">
+                  <input type="number" name="number" id="number" placeholder="0">
+                  <img src="./images/icon-plus.svg" alt="" class="math-icon" id="plus">
+                </div> 
+                <div  class="btn add-to-button " onclick="addToCart()">
+                  <img src="./images/icon-cart.svg" alt="" class="addcart">
+                  Add to cart
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer role="contentinfo">
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Your Name Here</a>.
+      </div>
+    </footer>
+<!-- ----------------custom js---------------- -->
+<script src="./main.js"></script>
+
+</body>
+</html>
