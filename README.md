@@ -23,8 +23,8 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ### Links
 
-- Solution URL:https://github.com/ssenyondo67/interactive-rating-component-main
-- Live Site URL: https://interactive-rating-component-main-bay.vercel.app/
+- Solution URL:https://github.com/ssenyondo67/ecommerce-product-page-main
+- Live Site URL: https://ecommerce-product-page-main-4flj.vercel.app/
 
 ## My process
 
@@ -41,7 +41,7 @@ step6 verifing that i have developed the required design
 - CSS custom properties
 - Flexbox
 
-
+-javascript
 
 ### Continued development
  At this point i want everything
