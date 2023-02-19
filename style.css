@@ -176,7 +176,11 @@ header{
     position: relative;
 }
 
-
+#error{
+    position: absolute;
+    top: -1rem;
+    color: var(--color-orange);
+}
 
 .__hide{
     display: none;

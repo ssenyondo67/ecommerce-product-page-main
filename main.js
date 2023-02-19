@@ -14,6 +14,14 @@ let itemHolder=document.getElementById('ItemHolder');
 let checkout=document.getElementById('checkout');
 let itemNumber=document.getElementById('itemNumber');
 
+amount.addEventListener('keyup',()=>{
+    if(amount.value>0){
+        amount.value=amount.value;
+    }else{
+        amount.value=0;
+    }
+   
+})
 // -------------initial assignment----------
 itemHolder.innerHTML='Your card is empty';
 checkout.style.display='none';
@@ -200,12 +208,19 @@ function newElement(element) {
     object=document.createElement(element);
     return object;
 }
+var x=0;
 
 function addToCart(){
-   
+    let num=itemHolder.childElementCount;
+    if(num<1){
+        itemHolder.innerHTML='';
+    }
+    if(amount.value>0){
+
+    var productId ='item'+x;
     var item =newElement('div')
     
-    item.classList.add('cart-item','flex__item','item1');
+    item.classList.add('cart-item','flex__item', productId);
     var col2=newElement('div');
     col2.classList.add('col-2')
     var img=newElement('img');
@@ -227,7 +242,12 @@ function addToCart(){
     var span2=newElement('span');
     span2.classList.add('item-quantity');
     span2.innerHTML=amount.value;
-    itemNumber.innerHTML=amount.value;
+    if(itemNumber.innerHTML){
+        itemNumber.innerHTML=parseInt(itemNumber.innerHTML)+parseInt(amount.value);
+    }else{
+        itemNumber.innerHTML= amount.value;
+    }
+   
     itemNumber.classList.add('number')
     par2.insertAdjacentElement('beforeend',span2);
     var span3=newElement('span');
@@ -242,22 +262,37 @@ function addToCart(){
     var img2=newElement('img');
     img2.src="./images/icon-delete.svg";
     img2.classList.add('delete-image');
-    img2.id='item1';
+    img2.id=productId;
     img2.setAttribute('onClick','deleteFrom(this.id)')
     col3.insertAdjacentElement('beforeend',img2);
     item.insertAdjacentElement('beforeend',col3);
     itemHolder.appendChild(item);
     
     checkout.style.display='flex';
-
+    }else{
+     let err=document.getElementById('error');
+     err.innerHTML='Quantity is required';
+     setTimeout(() => {
+        err.innerHTML='';
+     },2000);
+     itemHolder.innerHTML='Your card is empty';
+    }
+    x +=1;
 }
 
 function deleteFrom(id){
     let element =document.getElementsByClassName(id);
-    element[0].style.display='none'
-    checkout.style.display='none';
-    itemNumber.innerHTML='';
-    itemNumber.classList.remove('number')
+    let num=itemHolder.childElementCount;
+    let quantity = element[0].children[1].children[1].children[1];
+    if(num ==1){
+        checkout.style.display='none';    
+        itemNumber.innerHTML='';
+        itemNumber.classList.remove('number');
+        itemHolder.innerHTML='Your card is empty';
+    }else{
+        itemNumber.innerHTML=parseInt(itemNumber.innerHTML)- parseInt(quantity.innerHTML);
+        element[0].remove();
+    }
     
 }
 
